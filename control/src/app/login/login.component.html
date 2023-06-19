@@ -1,0 +1,98 @@
+
+
+<div class="main-div">
+    <div class="heading">
+      <h1>Form</h1>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="loginuser()" >
+        <label for="Name">Username: <br>
+            <input type="text" name="text" 
+           
+            placeholder="enter your Name" id="name" formControlName="user">
+            <span style="color: red;" *ngIf="user && user.invalid && user.touched">Enter your valid user name</span>
+        </label>
+        <!-- <br>
+        <label for="Email">Email:  <br>
+            <input type="email" email="text" placeholder="enter your Email" id="email" formControlName="email">
+            <span style="color: red;" *ngIf="email && email.invalid && email.touched">Enter your valid email</span>
+        </label>
+        <br> -->
+        <br>
+        <label for="Email">Email:  <br>
+            <input type="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$+@gmail.com" email="text" 
+              placeholder="enter your Email" id="email" formControlName="email">
+            <span style="color: red;" *ngIf="email && email.invalid && email.touched">Enter your valid email</span>
+            <!-- <div *ngIf="email.errors?.required">enter email</div>
+            <div *ngIf="email.errors?.pattern"> Inavalid email</div> -->
+        </label>
+        <br>
+        <br>
+        <label for="phone">phone:  <br>
+            <input type="phone" required pattern="^((\\+91-?)|0)?[0-9]{10}$" phone="text" 
+              placeholder="enter your phone" id="phone" formControlName="phone">
+            <span style="color: red;" *ngIf="phone && phone.invalid && phone.touched">Enter your valid phone</span>
+        </label>
+    
+        <br>
+        <br>
+         
+        <label for="gender">Gender:  <br>
+          <input type="radio" id="girl" name="gender" formControlName="gender" value="Female">
+          <label for="female">Female</label>
+            <input type="radio" id="male" name="gender" formControlName="gender" value="Male" >
+            <label for="male"></label>Male
+            <input type="radio" id="default" name="gender" formControlName="gender" value="Default">
+            <label for="default">Default</label>
+      </label>
+      <br>
+    <br>
+      <label for="country"></label>Country:
+      <select name="country" id="country" formControlName="country" class="form-control">
+        <option disabled>Select Country</option>
+                    <option>Choose Country</option>
+                    <option *ngFor="let web of CountryList">{{web}}</option>
+      </select>
+    
+    
+        <br>
+        <label for="password">Password: <br>
+          <input type="password" password="text" placeholder="enter your password" id="password" formControlName="password">
+          <span style="color: red;" *ngIf="password && password.invalid && password.touched">Enter your valid password</span>
+      </label>
+       
+    <br><br>
+    <button (click)="reset()">Reset</button>
+    <Button routerLink="/get">Move</Button>
+    
+    <!-- <button [disabled]="loginForm.invalid" (click)="show()" >Submit</button> -->
+    <button  (click)="show()" >Submit</button>
+    </form>
+    
+    <div class="main">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Country</th>
+            <th scope="col">Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let s of entries">
+            <th scope="row">.</th>
+            <td>{{s.user}}</td>
+            <td>{{s.email}}</td>
+            <td>{{s.phone}}</td>
+            <td>{{s.gender}}</td>
+            <td>{{s.country}}</td>
+            <td>{{s.password}}</td>
+          </tr>
+    
+    <br>
+    <br>
+    
+    

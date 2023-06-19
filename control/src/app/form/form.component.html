@@ -1,0 +1,33 @@
+<!-- 
+
+ <form [formGroup]="loginForm" (ngSubmit)="onsubmit()" >
+  <div class="heading">
+    <h1>Form</h1>
+  </div>
+<div class="container">
+    <label for="Name">
+        <input type="text" name="text" placeholder="enter your Name" id="name" formControlName="name">
+    </label>
+    <label for="Email">
+        <input type="email" email="text" placeholder="enter your Email" id="email" formControlName="email">
+    </label>
+   
+</div>
+</form>
+<button type="submit" >submit</button>
+
+
+
+
+ -->
+
+
+ <div *ngFor="let mm of Data">
+  <p>Id :   <input type="text" [(ngModel)]="mm.id" > </p>
+  <p>user :   <input type="text" [(ngModel)]="mm.user" > </p>
+  <p>email :   <input type="text" [(ngModel)]="mm.email" > </p>
+  <p>phone :   <input type="text" [(ngModel)]="mm.phone" > </p>
+  <p>gender :   <input type="text" [(ngModel)]="mm.gender" > </p>
+  <p>country :   <input type="text" [(ngModel)]="mm.country" > </p>
+  <p>password :   <input type="text" [(ngModel)]="mm.password" > </p>
+</div>
